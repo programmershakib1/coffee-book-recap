@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Categories = ({categories}) => {
   return (
@@ -11,5 +12,9 @@ const Categories = ({categories}) => {
     </div>
   );
 };
+
+Categories.propTypes = {
+  categories: PropTypes.array
+}
 
 export default Categories;

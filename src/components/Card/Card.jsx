@@ -1,7 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import PropTypes from "prop-types";
 
-const Card = ({coffee}) => {
+const Card = ({coffee, handleRemove}) => {
+    const {pathname} = useLocation();
+
     const {name, image, category, origin, type, id, rating, popularity} = coffee;
+    
     return (
         <div className="flex flex-col relative border p-5 rounded-xl">
             <Link to={`/coffee/${id}`} className="transition hover:scale-105 rounded-xl">
@@ -17,8 +21,16 @@ const Card = ({coffee}) => {
                     <p>Popular: {popularity}</p>
                 </div>
             </Link>
+            {
+                pathname === '/dashboard' && <div onClick={() => handleRemove(id)} className="absolute -top-4 -right-4 bg-yellow-500 rounded-full p-5 flex items-center justify-center cursor-pointer"><i className="fa-solid fa-trash"></i></div>
+            }
         </div>
     );
 };
+
+Card.propTypes = {
+    coffee: PropTypes.object,
+    handleRemove: PropTypes.func
+}
 
 export default Card;

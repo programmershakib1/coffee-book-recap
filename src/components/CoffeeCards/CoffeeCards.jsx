@@ -28,7 +28,7 @@ const CoffeeCards = () => {
                     coffees.map((coffee, idx) => <Card key={idx} coffee={coffee}></Card>)
                 }
             </div>
-            <button hidden={coffees.length > 6} onClick={() => setCoffees(data)} className="font-bold bg-yellow-500 rounded-full px-10 py-3">View All</button>
+            <button hidden={coffees.length > 6} onClick={() => setCoffees(data)} className="font-bold bg-warning rounded-full px-10 py-3">View All</button>
         </>
     );
 };
